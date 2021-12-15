@@ -1,0 +1,12 @@
+const navScrollProgress = document.getElementById('nav-scroll-progress');
+  if (navScrollProgress) {
+    window.addEventListener('scroll', (event) => {
+      const h = document.documentElement,
+        b = document.body,
+        st = 'scrollTop',
+        sh = 'scrollHeight';
+
+      const percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+      navScrollProgress.style.transform = `translateX(-${100 - percent}%)`;
+    });
+  }
